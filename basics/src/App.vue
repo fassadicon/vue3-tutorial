@@ -13,13 +13,13 @@ export default {
         jobLocation: [],
         remoteWork: "no",
         skillSet: [],
-        yearsOfExperience: ''
+        yearsOfExperience: '',
+        age: null
       }
     }
   },
   methods: {
-    submitForm (event) {
-      event.preventDefault()
+    submitForm () {
       console.log(this.formValues)
     }
   }
@@ -30,10 +30,14 @@ export default {
   <pre>
     {{ formValues }}
   </pre>
-  <form @submit="submitForm">
+  <form @submit.prevent="submitForm">
     <div>
       <label for="name">Name</label>
-      <input type="text" id="name" v-model="formValues.name">
+      <input type="text" id="name" v-model.trim.lazy="formValues.name">
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <input @keyup.enter="submitForm" type="number" id="age" v-model.number="formValues.age">
     </div>
     <div>
       <label for="profile">Profle</label>
@@ -80,9 +84,9 @@ export default {
 
     </div>
 
-    <div>
+    <!-- <div>
       <button type="submit">Submit</button>
-    </div>
+    </div> -->
   </form>
 </template>
 
