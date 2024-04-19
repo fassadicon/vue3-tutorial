@@ -1,21 +1,33 @@
 <template>
   <Topbar :name />
-  <Home />
+  <button @click="activeTab = 'TabA'">Tab A</button>
+  <button @click="activeTab = 'TabB'">Tab B</button>
+  <button @click="activeTab = 'TabC'">Tab C</button>
+
+  <component :is="activeTab"/>
+  <!-- <TabA v-if="activeTab === 'TabA'"></TabA>
+  <TabB v-if="activeTab === 'TabB'"></TabB>
+  <TabC v-if="activeTab === 'TabC'"></TabC> -->
 </template>
 
 <script>
-import Home from "./views/Home.vue";
 import Topbar from "./layouts/Topbar.vue";
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
 
 export default {
   name: "App",
   components: {
     Topbar,
-    Home
+    TabA,
+    TabB,
+    TabC
   },
   data() {
     return {
-      name: "",
+      name: "Juan",
+      activeTab: "TabA"
     }
   },
   provide() {
@@ -27,3 +39,6 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+</style>

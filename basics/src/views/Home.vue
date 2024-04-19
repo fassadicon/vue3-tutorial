@@ -3,8 +3,13 @@
         <Article id="article_1" title="Article_1" :content="'This is a sample content'" :likes="50"/>
     </div>
     <div>
-        <Card>Uwu</Card>
-        <Card></Card>
+        <Card>
+            <template v-slot:header>Header</template>
+            <template v-slot:default>Content</template>
+            <template v-slot:footer>
+                <a href="">Click here for more info</a>
+            </template>
+        </Card>
     </div>
 </template>
 
