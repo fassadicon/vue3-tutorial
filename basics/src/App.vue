@@ -1,19 +1,17 @@
 <template>
   <Topbar :name />
-  <teleport to="#portal-root">
-    <Portal/>
-  </teleport>
+  <PostList />
 </template>
 
 <script>
 import Topbar from "./layouts/Topbar.vue";
-import Portal from "./components/Portal.vue"
+import PostList from "./components/PostList.vue";
 
 export default {
   name: "App",
   components: {
     Topbar,
-    Portal
+    PostList
   },
   data() {
     return {
